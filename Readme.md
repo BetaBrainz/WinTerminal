@@ -1,7 +1,5 @@
 # PowerShell Scripts to Install/Uninstall Context Menu Items for Windows Terminal
 
-*A project backed by [LeXtudio Inc.](https://www.lextudio.com)*
-
 ## Install
 
 1. [Install Windows Terminal](https://github.com/microsoft/terminal).
@@ -11,22 +9,22 @@
    > Quickest way to run the latest script from GitHub at an elevated PowerShell 7 console is
 
    > ``` powershell
-   > Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/andreivlarox/windowsterminal-shell/master/install.ps1'))
+   > Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/punk99/WinTerminal/master/install.ps1'))
    > ```
 
    > Quickest way to run the latest UNINSTALL script from GitHub at an elevated PowerShell 7 console is
 
    > ``` powershell
-   > Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/andreivlarox/windowsterminal-shell/master/uninstall.ps1'))
+   > Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/punk99/WinTerminal/master/uninstall.ps1'))
    > ```
 
 Now the menu items are added to Windows Explorer context menu.
 
+> The menu items are organized in the `default` layout. Other layouts such as `mini` and `flat` give different look and feel. To apply an alternative layout (like `mini`), simply run `install.ps1 mini`.
+
 ![default layout](default.png)
 
 Figure 1: Default layout
-
-> The menu items are organized in the `default` layout. Other layouts such as `mini` and `flat` give different look and feel. To apply an alternative layout (like `mini`), simply run `install.ps1 mini`.
 
 ![flat layout](flat.png)
 
@@ -57,6 +55,3 @@ PowerShell 7 installed from Microsoft Store is not supported by the scripts (mor
 > So different users on the same machine must install the context menu items separately, but possibly with different layouts.
 
 Downloading Windows Terminal icon from GitHub (in `install.ps1`) requires internet connection, but in general is just an optional step that won't be executed in most cases.
-
-## More Products
-To learn more about other cool products from LeXtudio Inc. , please visit [our homepage](https://www.lextudio.com/#projects).
