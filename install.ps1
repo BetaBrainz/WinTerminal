@@ -1,11 +1,10 @@
 #Requires -RunAsAdministrator
-#Requires -Version 6
-
+#Requires -Version 7.0
 [CmdletBinding()]
 param(
     [Parameter(Position = 0)]
     [ValidateSet('Default', 'Flat', 'Mini')]
-    [string] $Layout = 'mini',
+    [string] $Layout = 'Default',
     [Parameter()]
     [switch] $PreRelease
 )
@@ -282,7 +281,7 @@ function GetProfileIcon (
         } elseif ($profile.icon -like "*%*") {
             $profilePng = [System.Environment]::ExpandEnvironmentVariables($icon)
         } else {
-            Write-Host "Invalid profile icon found $icon. Please report an issue at https://github.com/lextm/windowsterminal-shell/issues ."
+            Write-Host "Invalid profile icon found $icon. Please report an issue at https://github.com/punk99/winterminal/issues ."
         }
     }
 
@@ -466,7 +465,7 @@ Write-Host "Use $Layout layout."
 CreateMenuItems $executable $Layout $PreRelease
 
 ## Setup the user prompt for settings.json download
-$yesdescription = "Downloads and imports the Windows Terminal settings file from https://raw.githubusercontent.com/andreivlarox/windowsterminal-shell/master/helpers/settings.json"
+$yesdescription = "Downloads and imports the Windows Terminal settings file from https://raw.githubusercontent.com/punk99/WinTerminal/main/helpers/settings.json"
 $nodescription = "Skips the download and importing of the settings file from Github."
 $yes = New-Object System.Management.Automation.Host.ChoiceDescription "&Yes", $yesdescription
 $no = New-Object System.Management.Automation.Host.ChoiceDescription "&No", $nodescription
@@ -491,7 +490,7 @@ switch ($result) {
         Copy-Item $file -Destination $backupfile
         Write-Host "Your original settings file was backed up as $backupfile"
     }
-    (New-Object System.Net.WebClient).Downloadfile("https://raw.githubusercontent.com/andreivlarox/windowsterminal-shell/master/helpers/settings.json", $file)
+    (New-Object System.Net.WebClient).Downloadfile("https://raw.githubusercontent.com/punk99/WinTerminal/main/helpers/settings.json", $file)
     Write-Host "Windows Terminal installed to Windows Explorer context menu."
 	Write-Host "Settings file downloaded and imported from Github."
   }
